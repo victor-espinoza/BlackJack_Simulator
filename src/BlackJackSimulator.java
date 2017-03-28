@@ -9,51 +9,51 @@ import java.util.Scanner;
 
 public class BlackJackSimulator {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+   /**
+   * @param args
+   */
+   public static void main(String[] args) {
+      // TODO Auto-generated method stub
 		
-		Scanner in= new Scanner(System.in);
-		String addCard= "Y"; //user input for additional cards
-		String continuePlaying= "Y"; //user input for continuing to play the game
+      Scanner in= new Scanner(System.in);
+      String addCard= "Y"; //user input for additional cards
+      String continuePlaying= "Y"; //user input for continuing to play the game
+
+      //Variables needed to keep track of the hand values and bet amounts
+      double availIncome=50.00, betAmount=0.00, tabValue=0.00;
+      int player1HandValue=0, dealerHandValue=0;
+      int menuResponse;
 		
-		//Variables needed to keep track of the hand values and bet amounts
-		double availIncome=50.00, betAmount=0.00, tabValue=0.00;
-		int player1HandValue=0, dealerHandValue=0;
-		int menuResponse;
+      //variable used to control what is displayed to the console when the user
+      //is asked to input a Y/N response
+      boolean promptType=true;
 		
-		//variable used to control what is displayed to the console when the user
-		//is asked to input a Y/N response
-		boolean promptType=true;
+      //used to determine which appropriate hand configuration to display (dealer or player)
+      boolean concealHand=true;
 		
-		//used to determine which appropriate hand configuration to display (dealer or player)
-		boolean concealHand=true;
-		
-		System.out.println("DISCLAIMER:\nThe suit characters used are encoded using " +
-		 "UTF-8, and the default console encoding in eclipse is not \nUTF-8. In order " +
-		 "to ensure that you can see the appropriate suit symbols, you need to make " +
-		 "sure to \nchange the default encoding for the console within eclipse to use " +
-		 "UTF-8, otherwise the suit characters \nwill be printed as a ? instead of " +
-		 "their appropriate symbols. In order to change the encoding settings \nfor " +
-		 "the console, click the drop down arrow on the run program button, select " +
-		 "Run Configuration -> \nCommon -> Encoding -> other and then Select UTF-8 " +
-		 "from the drop down menu. This should fix the encoding \nissue and allow you " +
-		 "to view the correct suit symbols! Sorry for the inconvenience.\n\n\n");
-		
-		//Create a new CardDeck and two new hands (1 for the player and one for the dealer)
-		CardDeck CardDeck= new CardDeck();		
-		Hand player1= new Hand();
-		Hand dealer= new Hand();
+      System.out.println("DISCLAIMER:\nThe suit characters used are encoded using " +
+       "UTF-8, and the default console encoding in eclipse is not \nUTF-8. In order " +
+       "to ensure that you can see the appropriate suit symbols, you need to make " +
+       "sure to \nchange the default encoding for the console within eclipse to use " +
+       "UTF-8, otherwise the suit characters \nwill be printed as a ? instead of " +
+       "their appropriate symbols. In order to change the encoding settings \nfor " +
+       "the console, click the drop down arrow on the run program button, select " +
+       "Run Configuration -> \nCommon -> Encoding -> other and then Select UTF-8 " +
+       "from the drop down menu. This should fix the encoding \nissue and allow you " +
+       "to view the correct suit symbols! Sorry for the inconvenience.\n\n\n");
+
+      //Create a new CardDeck and two new hands (1 for the player and one for the dealer)
+      CardDeck CardDeck= new CardDeck();		
+      Hand player1= new Hand();
+      Hand dealer= new Hand();
 	
-		CardDeck.newDeck();
-		System.out.println("Welcome to the Blackjack Simulator program. A new deck " +
-	     "has been created!");
+      CardDeck.newDeck();
+      System.out.println("Welcome to the Blackjack Simulator program. A new deck " +
+       "has been created!");
 		
-		menuResponse = mainMenuPrompt(in);
-	    //Input a number corresponding to the choice you want to perform.
-		while(menuResponse !=5){
+      menuResponse = mainMenuPrompt(in);
+      //Input a number corresponding to the choice you want to perform.
+      while(menuResponse !=5){
 			switch(menuResponse){
 				//create a new deck
 				case 1: CardDeck.newDeck();
