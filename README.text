@@ -1,0 +1,498 @@
+# BlackJack_Simulator
+
+Overview:
+This project implements a Blackjack simulator in Java using an object-oriented approach by encapsulating each of the different objects present in a game of blackjack such as the cards, the hand, and the deck into their own classes.
+
+
+Dependencies:
+This project was made using Eclipse SDK Version: 4.2.0.
+
+
+Sample Output:
+DISCLAIMER:
+The suit characters used are encoded using UTF-8, and the default console encoding in eclipse is not 
+UTF-8. In order to ensure that you can see the appropriate suit symbols, you need to make sure to 
+change the default encoding for the console within eclipse to use UTF-8, otherwise the suit characters 
+will be printed as a ? instead of their appropriate symbols. In order to change the encoding settings 
+for the console, click the drop down arrow on the run program button, select Run Configuration -> 
+Common -> Encoding -> other and then Select UTF-8 from the drop down menu. This should fix the encoding 
+issue and allow you to view the correct suit symbols! Sorry for the inconvenience.
+
+
+
+Welcome to the Blackjack Simulator program. A new deck has been created!
+Main Menu:
+1) New Deck
+2) Shuffle cards in Deck
+3) Display cards in Deck
+4) Play Black Jack
+5) Exit
+asdf
+Please Enter A Valid INTEGER NUMBER Between 1-5!
+Main Menu:
+1) New Deck
+2) Shuffle cards in Deck.
+3) Display cards in Deck
+4) Play Black Jack
+5) Exit
+12
+Please Enter A Valid Integer Number Between 1-5!
+Main Menu:
+1) New Deck
+2) Shuffle cards in Deck
+3) Display cards in Deck
+4) Play Black Jack
+5) Exit
+-4
+Please Enter A Valid Integer Number Between 1-5!
+Main Menu:
+1) New Deck
+2) Shuffle cards in Deck
+3) Display cards in Deck
+4) Play Black Jack
+5) Exit
+1
+A new deck has been created! Make sure to shuffle the deck before you start playing...
+
+Main Menu:
+1) New Deck
+2) Shuffle cards in Deck
+3) Display cards in Deck
+4) Play Black Jack
+5) Exit
+2
+The deck has been shuffled.
+
+Main Menu:
+1) New Deck
+2) Shuffle cards in Deck
+3) Display cards in Deck
+4) Play Black Jack
+5) Exit
+3
+The deck will now be printed...
+//Note: In the console window all of the cards appear next to each other, but due to the wrap-around constraints,
+//this was not possible to show in this sample output.
+
+----------  ----------  ----------  ----------  ----------  ----------  ----------  ----------  ----------  ----------  
+|K       |  |9       |  |A       |  |2       |  |2       |  |5       |  |5       |  |2       |  |J       |  |9       | 
+|        |  |        |  |        |  |        |  |        |  |        |  |        |  |        |  |        |  |        |
+|   ♥    |  |   ♣    |  |   ♣    |  |   ♠    |  |   ♦    |  |   ♦    |  |   ♥    |  |   ♣    |  |   ♣    |  |   ♦    | 
+|        |  |        |  |        |  |        |  |        |  |        |  |        |  |        |  |        |  |        | 
+|       K|  |       9|  |       A|  |       2|  |       2|  |       5|  |       5|  |       2|  |       J|  |       9| 
+¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  
+----------  ----------  ----------  ----------  ----------  ----------  ----------  ----------  ----------  ----------  
+|8       |  |10      |  |K       |  |6       |  |7       |  |K       |  |7       |  |J       |  |6       |  |10      | 
+|        |  |        |  |        |  |        |  |        |  |        |  |        |  |        |  |        |  |        |
+|   ♠    |  |   ♣    |  |   ♦    |  |   ♣    |  |   ♣    |  |   ♣    |  |   ♠    |  |   ♦    |  |   ♠    |  |   ♠    | 
+|        |  |        |  |        |  |        |  |        |  |        |  |        |  |        |  |        |  |        | 
+|       8|  |      10|  |       K|  |       6|  |       7|  |       K|  |       7|  |       J|  |       6|  |      10|  
+¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯   
+----------  ----------  ----------  ----------  ----------  ----------  ----------  ----------  ----------  ----------  
+|9       |  |A       |  |4       |  |3       |  |4       |  |3       |  |10      |  |J       |  |5       |  |7       | 
+|        |  |        |  |        |  |        |  |        |  |        |  |        |  |        |  |        |  |        |
+|   ♠    |  |   ♠    |  |   ♥    |  |   ♠    |  |   ♣    |  |   ♥    |  |   ♥    |  |   ♥    |  |   ♠    |  |   ♦    | 
+|        |  |        |  |        |  |        |  |        |  |        |  |        |  |        |  |        |  |        | 
+|       9|  |       A|  |       4|  |       3|  |       4|  |       3|  |      10|  |       J|  |       5|  |       7|
+¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  
+----------  ----------  ----------  ----------  ----------  ----------  ----------  ----------  ----------  ----------  
+|3       |  |8       |  |K       |  |5       |  |4       |  |Q       |  |8       |  |2       |  |Q       |  |8       |
+|        |  |        |  |        |  |        |  |        |  |        |  |        |  |        |  |        |  |        |
+|   ♣    |  |   ♥    |  |   ♠    |  |   ♣    |  |   ♠    |  |   ♣    |  |   ♦    |  |   ♥    |  |   ♠    |  |   ♣    | 
+|        |  |        |  |        |  |        |  |        |  |        |  |        |  |        |  |        |  |        | 
+|       3|  |       8|  |       K|  |       5|  |       4|  |       Q|  |       8|  |       2|  |       Q|  |       8| 
+¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  
+----------  ----------  ----------  ----------  ----------  ----------  ----------  ----------  ----------  ----------  
+|9       |  |7       |  |A       |  |A       |  |4       |  |Q       |  |J       |  |3       |  |6       |  |6       |
+|        |  |        |  |        |  |        |  |        |  |        |  |        |  |        |  |        |  |        |
+|   ♥    |  |   ♥    |  |   ♦    |  |   ♥    |  |   ♦    |  |   ♦    |  |   ♠    |  |   ♦    |  |   ♥    |  |   ♦    |
+|        |  |        |  |        |  |        |  |        |  |        |  |        |  |        |  |        |  |        | 
+|       9|  |       7|  |       A|  |       A|  |       4|  |       Q|  |       J|  |       3|  |       6|  |       6|
+¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯   
+----------  ----------  
+|10      |  |Q       |  
+|        |  |        |  
+|   ♦    |  |   ♥    |  
+|        |  |        |  
+|        |  |        |  
+|      10|  |       Q|  
+¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  
+Main Menu:
+1) New Deck
+2) Shuffle cards in Deck
+3) Display cards in Deck
+4) Play Black Jack
+5) Exit
+2
+The deck has been shuffled.
+
+Main Menu:
+1) New Deck
+2) Shuffle cards in Deck
+3) Display cards in Deck
+4) Play Black Jack
+5) Exit
+4
+
+The minimum bid is $1. You have $50.00. How much do you want to bet (Do not include the $)?
+fdsa
+Please Enter A Valid NUMBER That is greater Than $1 and Doesn't Exceed Your Current Income (Exclude the $)!
+-50
+Please Enter A Valid Number That is greater Than $1 and Doesn't Exceed Your Current Income (Exclude the $)!
+
+The minimum bid is $1. You have $50.00. How much do you want to bet (Do not include the $)?
+12
+Bet recieved...
+Dealer Hand: 
+----------  ----------  
+|?       |  |J       |  
+|        |  |        |  
+|   ?    |  |   ♥    |  
+|        |  |        |  
+|       ?|  |       J|  
+¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  
+Dealer Hand Total: ???
+
+Player Hand: 
+----------  ----------  
+|8       |  |5       |  
+|        |  |        |  
+|   ♥    |  |   ♥    |  
+|        |  |        |  
+|       8|  |       5|  
+¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  
+Player Hand Total: 13
+
+
+Do you want another card?[Y/N]
+fsda
+Please Enter A Valid response (Y/N/y/n)!
+
+Do you want another card?[Y/N]
+y
+Dealer Hand: 
+----------  ----------  
+|?       |  |J       |  
+|        |  |        |  
+|   ?    |  |   ♥    |  
+|        |  |        |  
+|       ?|  |       J|  
+¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  
+Dealer Hand Total: ???
+
+Player Hand: 
+----------  ----------  ----------  
+|8       |  |5       |  |3       |  
+|        |  |        |  |        |  
+|   ♥    |  |   ♥    |  |   ♠    |  
+|        |  |        |  |        |  
+|       8|  |       5|  |       3|  
+¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  
+Player Hand Total: 16
+
+
+Do you want another card?[Y/N]
+n
+
+Player stands.
+
+
+Dealer requested a card!
+
+Dealer Hand: 
+----------  ----------  ----------  
+|3       |  |J       |  |4       |  
+|        |  |        |  |        |  
+|   ♦    |  |   ♥    |  |   ♥    |  
+|        |  |        |  |        |  
+|       3|  |       J|  |       4|  
+¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  
+Dealer Hand Total: 17
+
+Player Hand: 
+----------  ----------  ----------  
+|8       |  |5       |  |3       |  
+|        |  |        |  |        |  
+|   ♥    |  |   ♥    |  |   ♠    |  
+|        |  |        |  |        |  
+|       8|  |       5|  |       3|  
+¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  
+Player Hand Total: 16
+
+Dealer stands.
+
+FINAL RESULTS:
+Dealer Hand: 
+----------  ----------  ----------  
+|3       |  |J       |  |4       |  
+|        |  |        |  |        |  
+|   ♦    |  |   ♥    |  |   ♥    |  
+|        |  |        |  |        |  
+|       3|  |       J|  |       4|  
+¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  
+Dealer Hand Total: 17
+
+Player Hand: 
+----------  ----------  ----------  
+|8       |  |5       |  |3       |  
+|        |  |        |  |        |  
+|   ♥    |  |   ♥    |  |   ♠    |  
+|        |  |        |  |        |  
+|       8|  |       5|  |       3|  
+¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  
+Player Hand Total: 16
+
+Dealer wins! You lose pal...
+You have $38.00. 
+
+Do you want to play again?[Y/N]
+fdas
+Please Enter A Valid response (Y/N/y/n)!
+
+Do you want to play again?[Y/N]
+1
+Please Enter A Valid response (Y/N/y/n)!
+
+Do you want to play again?[Y/N]
+Y
+
+The minimum bid is $1. You have $38.00. How much do you want to bet (Do not include the $)?
+20
+Bet recieved...
+Dealer Hand: 
+----------  ----------  
+|?       |  |7       |  
+|        |  |        |  
+|   ?    |  |   ♠    |  
+|        |  |        |  
+|       ?|  |       7|  
+¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  
+Dealer Hand Total: ???
+
+Player Hand: 
+----------  ----------  
+|5       |  |9       |  
+|        |  |        |  
+|   ♣    |  |   ♦    |  
+|        |  |        |  
+|       5|  |       9|  
+¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  
+Player Hand Total: 14
+
+
+Do you want another card?[Y/N]
+y
+Dealer Hand: 
+----------  ----------  
+|?       |  |7       |  
+|        |  |        |  
+|   ?    |  |   ♠    |  
+|        |  |        |  
+|       ?|  |       7|  
+¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  
+Dealer Hand Total: ???
+
+Player Hand: 
+----------  ----------  ----------  
+|5       |  |9       |  |3       |  
+|        |  |        |  |        |  
+|   ♣    |  |   ♦    |  |   ♥    |  
+|        |  |        |  |        |  
+|       5|  |       9|  |       3|  
+¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  
+Player Hand Total: 17
+
+
+Do you want another card?[Y/N]
+n
+
+Player stands.
+
+
+Dealer requested a card!
+
+Dealer Hand: 
+----------  ----------  ----------  
+|3       |  |7       |  |J       |  
+|        |  |        |  |        |  
+|   ♣    |  |   ♠    |  |   ♠    |  
+|        |  |        |  |        |  
+|       3|  |       7|  |       J|  
+¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  
+Dealer Hand Total: 20
+
+Player Hand: 
+----------  ----------  ----------  
+|5       |  |9       |  |3       |  
+|        |  |        |  |        |  
+|   ♣    |  |   ♦    |  |   ♥    |  
+|        |  |        |  |        |  
+|       5|  |       9|  |       3|  
+¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  
+Player Hand Total: 17
+
+Dealer stands.
+
+FINAL RESULTS:
+Dealer Hand: 
+----------  ----------  ----------  
+|3       |  |7       |  |J       |  
+|        |  |        |  |        |  
+|   ♣    |  |   ♠    |  |   ♠    |  
+|        |  |        |  |        |  
+|       3|  |       7|  |       J|  
+¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  
+Dealer Hand Total: 20
+
+Player Hand: 
+----------  ----------  ----------  
+|5       |  |9       |  |3       |  
+|        |  |        |  |        |  
+|   ♣    |  |   ♦    |  |   ♥    |  
+|        |  |        |  |        |  
+|       5|  |       9|  |       3|  
+¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  
+Player Hand Total: 17
+
+Dealer wins! You lose pal...
+You have $18.00. 
+
+Do you want to play again?[Y/N]
+y
+
+The minimum bid is $1. You have $18.00. How much do you want to bet (Do not include the $)?
+10
+Bet recieved...
+Dealer Hand: 
+----------  ----------  
+|?       |  |4       |  
+|        |  |        |  
+|   ?    |  |   ♣    |  
+|        |  |        |  
+|       ?|  |       4|  
+¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  
+Dealer Hand Total: ???
+
+Player Hand: 
+----------  ----------  
+|2       |  |7       |  
+|        |  |        |  
+|   ♥    |  |   ♦    |  
+|        |  |        |  
+|       2|  |       7|  
+¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  
+Player Hand Total: 9
+
+
+Do you want another card?[Y/N]
+y
+Dealer Hand: 
+----------  ----------  
+|?       |  |4       |  
+|        |  |        |  
+|   ?    |  |   ♣    |  
+|        |  |        |  
+|       ?|  |       4|  
+¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  
+Dealer Hand Total: ???
+
+Player Hand: 
+----------  ----------  ----------  
+|2       |  |7       |  |J       |  
+|        |  |        |  |        |  
+|   ♥    |  |   ♦    |  |   ♣    |  
+|        |  |        |  |        |  
+|       2|  |       7|  |       J|  
+¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  
+Player Hand Total: 19
+
+
+Do you want another card?[Y/N]
+n
+
+Player stands.
+
+
+Dealer requested a card!
+
+Dealer Hand: 
+----------  ----------  ----------  
+|8       |  |4       |  |A       |  
+|        |  |        |  |        |  
+|   ♦    |  |   ♣    |  |   ♠    |  
+|        |  |        |  |        |  
+|       8|  |       4|  |       A|  
+¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  
+Dealer Hand Total: 13
+
+Player Hand: 
+----------  ----------  ----------  
+|2       |  |7       |  |J       |  
+|        |  |        |  |        |  
+|   ♥    |  |   ♦    |  |   ♣    |  
+|        |  |        |  |        |  
+|       2|  |       7|  |       J|  
+¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  
+Player Hand Total: 19
+
+
+Dealer requested a card!
+
+Dealer Hand: 
+----------  ----------  ----------  ----------  
+|8       |  |4       |  |A       |  |K       |  
+|        |  |        |  |        |  |        |  
+|   ♦    |  |   ♣    |  |   ♠    |  |   ♥    |  
+|        |  |        |  |        |  |        |  
+|       8|  |       4|  |       A|  |       K|  
+¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  
+Dealer Hand Total: 23
+
+Player Hand: 
+----------  ----------  ----------  
+|2       |  |7       |  |J       |  
+|        |  |        |  |        |  
+|   ♥    |  |   ♦    |  |   ♣    |  
+|        |  |        |  |        |  
+|       2|  |       7|  |       J|  
+¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  
+Player Hand Total: 19
+
+Dealer stands.
+
+FINAL RESULTS:
+Dealer Hand: 
+----------  ----------  ----------  ----------  
+|8       |  |4       |  |A       |  |K       |  
+|        |  |        |  |        |  |        |  
+|   ♦    |  |   ♣    |  |   ♠    |  |   ♥    |  
+|        |  |        |  |        |  |        |  
+|       8|  |       4|  |       A|  |       K|  
+¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  
+Dealer Hand Total: 23
+
+Player Hand: 
+----------  ----------  ----------  
+|2       |  |7       |  |J       |  
+|        |  |        |  |        |  
+|   ♥    |  |   ♦    |  |   ♣    |  
+|        |  |        |  |        |  
+|       2|  |       7|  |       J|  
+¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  ¯¯¯¯¯¯¯¯¯¯  
+Player Hand Total: 19
+
+You win, congratulations!
+You have $28.00. 
+
+Do you want to play again?[Y/N]
+n
+Main Menu:
+1) New Deck
+2) Shuffle cards in Deck
+3) Display cards in Deck
+4) Play Black Jack
+5) Exit
+5
+The program will now exit. Thank you for playing and enjoy the rest of your day!
+
+
