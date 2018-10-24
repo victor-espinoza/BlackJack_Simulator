@@ -1,4 +1,4 @@
-Project Overview:
+Project Overview: 
 This project implements a Blackjack simulator in Java using an object-oriented approach by encapsulating each of the different objects present in a game of blackjack such as the cards, the hand, and the deck into their own classes.
    
 The logic for this program is fairly straightforward. When the program is started, a new, unshuffled deck is created. The user is then given the option to get a new deck, shuffle the deck, display all of the cards currently in the deck, play a game of Black Jack, and exit the program. 
